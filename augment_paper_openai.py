@@ -4,9 +4,9 @@ import time
 import requests
 import json
 from tqdm import tqdm
-import openai
+# import openai
 import os
-import qianfan
+# import qianfan
 
 import requests
 import json
@@ -50,14 +50,14 @@ os.environ["QIANFAN_ACCESS_KEY"] = "IGrCD1JQf1nd3eEHfceFtG9t"
 os.environ["QIANFAN_SECRET_KEY"] = "L3LkYBd9yTtyn4TXv2A9wtbWWAvweMKP"
 
 
-chat_comp = qianfan.ChatCompletion()
+# chat_comp = qianfan.ChatCompletion()
 
 
 OPENAI_API = 'http://172.17.62.88:8010/v1'
 OPENAI_KEY = 'none'
 
-openai.api_base = OPENAI_API
-openai.api_key = OPENAI_KEY
+# openai.api_base = OPENAI_API
+# openai.api_key = OPENAI_KEY
 
 def load_json(file_path):
     with open(file_path, 'r') as file:
@@ -129,9 +129,9 @@ with open(output_path, 'a') as file:  # Open the file in append mode
         except requests.exceptions.RequestException as e:
             print(f"Error on window {idx}: {e}")
             continue  # Skip the current iteration and continue with the next window
-        except openai.error.APIError as e:
-            print(f"Error during request {idx}: {e}")
-            continue
+        # except openai.error.APIError as e:
+        #     print(f"Error during request {idx}: {e}")
+        #     continue
         json.dump(new_item, file)
         file.write('\n')
         file.flush()
